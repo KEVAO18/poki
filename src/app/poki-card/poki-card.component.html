@@ -1,0 +1,21 @@
+<a class="text-decoration-none" [routerLink]="['/poki', pokiId]">
+    <div class="pokiCard">
+        <h2 class="text-dark text-center">{{ pokiData.name }}</h2>
+        <img *ngIf="shy == 0" class="pokiCardImg"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/{{pokiId}}.gif"
+            alt="Card image cap">
+        <img *ngIf="shy == 1" class="pokiCardImg"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/{{pokiId}}.gif"
+            alt="Card image cap">
+        <div class="card-body">
+            <div class="display-6">
+            </div>
+            <audio controls class="pokiCardAudio">
+                <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/{{pokiId}}.ogg"
+                    type="audio/ogg">
+                <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/{{pokiId}}.ogg"
+                    type="audio/ogg">
+            </audio>
+        </div>
+    </div>
+</a>
