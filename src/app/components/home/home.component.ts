@@ -1,14 +1,15 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { PokiCardComponent } from "../poki-card/poki-card.component";
-import { GetPokiDataService } from '../get-poki-data.service';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { NavbarComponent } from "../navbar/navbar.component";
+import { GetPokiDataService } from '@app/get-poki-data.service';
+import { NavbarComponent } from "@components/navbar/navbar.component";
+import { PokiCardComponent } from "@components/poki-card/poki-card.component";
+import { AsideComponent } from "../aside/aside.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PokiCardComponent, CommonModule, NavbarComponent, RouterLink],
+  imports: [PokiCardComponent, CommonModule, NavbarComponent, RouterLink, AsideComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   pokiData!: any;
 
-  limit: any = 24;
+  limit: any = 27;
 
   multi!: number;
 
@@ -25,6 +26,8 @@ export class HomeComponent implements OnInit {
   next!: number;
 
   shy!: number;
+
+  cargaCompleta: boolean = false;
 
   constructor(private getPokiDataService: GetPokiDataService, private varDin: ActivatedRoute) { }
 
@@ -49,7 +52,7 @@ export class HomeComponent implements OnInit {
     this.getPokiDataService.getPokiData(this.limit, this.offset).subscribe({
       next: (response) => {
         this.pokiData = response;
-        console.log('Datos recibidos:', this.pokiData);
+        this.cargaCompleta = true;
       },
       error: (error) => {
         console.error('Error al obtener los datos:', error);

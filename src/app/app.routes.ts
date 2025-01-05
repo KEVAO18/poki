@@ -1,6 +1,8 @@
+import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { PerTypeComponent } from './per-type/per-type.component';
+import { HomeComponent } from '@components/home/home.component';
+import { PerTypeComponent } from '@components/per-type/per-type.component';
+import { MorePokiInfoComponent } from '@components/more-poki-info/more-poki-info.component';
 
 export const routes: Routes = [
     { 
@@ -14,6 +16,6 @@ export const routes: Routes = [
     },
     {
         path: 'poki/:id',
-        component: PerTypeComponent
+        component: MorePokiInfoComponent
     }
 ];
