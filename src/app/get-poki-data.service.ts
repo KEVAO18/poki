@@ -19,7 +19,7 @@ export class GetPokiDataService {
       return this.http.get(`${this.api_url}pokemon?limit=${limit}&offset=${offset}`);
   }
     
-  getPorTipo(tipo = 1): Observable<any> {
+  getPorTipo(tipo: string = 'normal'): Observable<any> {
     return this.http.get(`${this.api_url}type/${tipo}`);
   }
 

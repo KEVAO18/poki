@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { GetPokiDataService } from '@app/get-poki-data.service';
 
 @Component({
@@ -12,22 +13,5 @@ import { GetPokiDataService } from '@app/get-poki-data.service';
 export class AsideComponent {
 
   pokiData!: any;
-
-  constructor(private getPokiData: GetPokiDataService) { }
-
-  ngOnInit() {
-    this.fetchPokiData();
-  }
-
-  fetchPokiData() {
-    this.getPokiData.getAllOfOne('type').subscribe({
-      next: (response) => {
-        this.pokiData = response.results.filter((poki: any) => poki.name !== 'unknown');
-      },
-      error: (error) => {
-        console.error('Error al obtener los datos:', error);
-      }
-    });
-  }
 
 }
