@@ -15,18 +15,23 @@ export class SearchComponent implements OnInit {
 
   datos!: any;
   searchResults: any[] = [];
-
+  pokerandom!: any;
   constructor(private allData: GetPokiDataService) { }
 
   ngOnInit(): void {
     this.datos = this.allData.guardarTodosPokemones();
+    this.Randomizer();
+  }
+
+  Randomizer(): void {
+    this.pokerandom = this.datos[Math.floor(Math.random() * 1025) + 1];
   }
 
   onSearchChange(event: any): void {
     const query = event.target.value.toLowerCase();
-    this.searchResults = this.datos
+    this.searchResults = (query.length > 0)? this.datos
       .filter((pokemon: any) => pokemon.name.toLowerCase().includes(query))
-      .slice(0, 6);
+      .slice(0, 6) : [];
   }
 
   onSubmit(event: Event): void {
