@@ -29,6 +29,10 @@ export class SearchComponent implements OnInit {
       .slice(0, 6);
   }
 
+  onSubmit(event: Event): void {
+    event.preventDefault();
+  }
+
   findId(url: string): string {
     return url.split('/')[6];
   }

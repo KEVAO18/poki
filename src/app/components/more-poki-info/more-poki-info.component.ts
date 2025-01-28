@@ -4,13 +4,14 @@ import { GetPokiDataService } from '@app/get-poki-data.service';
 import { NavbarComponent } from "@components/navbar/navbar.component";
 import { CommonModule } from '@angular/common';
 import { AbilityComponent } from "../ability/ability.component";
+import { SearchComponent } from "../search/search.component";
 
 declare const bootstrap: any;
 
 @Component({
   selector: 'app-more-poki-info',
   standalone: true,
-  imports: [NavbarComponent, CommonModule, AbilityComponent],
+  imports: [NavbarComponent, CommonModule, AbilityComponent, SearchComponent],
   templateUrl: './more-poki-info.component.html',
   styleUrl: './more-poki-info.component.scss'
 })
