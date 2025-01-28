@@ -4,12 +4,19 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { GetPokiDataService } from '@app/get-poki-data.service';
 import { NavbarComponent } from "@components/navbar/navbar.component";
 import { PokiCardComponent } from "@components/poki-card/poki-card.component";
-import { AsideComponent } from "../aside/aside.component";
+import { SearchComponent } from "@components/search/search.component";
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PokiCardComponent, CommonModule, NavbarComponent, RouterLink, AsideComponent],
+  imports: [
+    PokiCardComponent, 
+    CommonModule, 
+    NavbarComponent, 
+    RouterLink, 
+    SearchComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

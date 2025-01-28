@@ -1,0 +1,9 @@
+<div class="card mt-2 p-3 shadow">
+    <h4 class="text-center">Abilities</h4>
+    <section class="pokibody">
+        <article class="pokiarticle" *ngFor="let abilities of abilitiesIn; let i = index">
+            <h5 class="badge text-bg-primary shadow rounded-pill">{{abilities.name}}</h5>
+            <p>{{abilities.descripcion}}</p>
+        </article>
+    </section>
+</div>

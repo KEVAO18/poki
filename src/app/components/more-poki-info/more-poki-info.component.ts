@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { GetPokiDataService } from '@app/get-poki-data.service';
 import { NavbarComponent } from "@components/navbar/navbar.component";
 import { CommonModule } from '@angular/common';
+import { AbilityComponent } from "../ability/ability.component";
 
 declare const bootstrap: any;
 
 @Component({
   selector: 'app-more-poki-info',
   standalone: true,
-  imports: [NavbarComponent, CommonModule],
+  imports: [NavbarComponent, CommonModule, AbilityComponent],
   templateUrl: './more-poki-info.component.html',
   styleUrl: './more-poki-info.component.scss'
 })

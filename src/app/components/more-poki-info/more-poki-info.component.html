@@ -69,15 +69,7 @@
                     </article>
                 </section>
             </div>
-            <div class="card mt-2 p-3 shadow">
-                <h4 class="text-center">Abilities</h4>
-                <section class="pokibody">
-                    <article class="pokiarticle" *ngFor="let abilities of this.pokiData.abilities; let i = index">
-                        <span [id]="abilities.ability.name + i" class="badge text-bg-primary shadow rounded-pill">{{
-                            abilities.ability.name }}</span>
-                    </article>
-                </section>
-            </div>
+            <app-ability [pokiData]="this.pokiData.abilities"></app-ability>
         </div>
     </div>
 </div>
